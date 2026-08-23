@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Primitives Examples</title>
+    <style>
+        body {
+            margin: 20px;
+            padding: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+        }
+        td {
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+            vertical-align: top;
+            background-color: #f9f9f9;
+        }
+        h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+        canvas {
+            border: 1px solid #999;
+            background-color: black;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 20px;
+            color: #777; /* Deixa o texto com um tom de cinza mais discreto */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercícios - Intro WebGL</h1>
+    
+    <table>
+        <tr>
+            <td>
+                <h3>FLOR</h3>
+                <canvas id="glCanvas1" width="300" height="300"></canvas>
+            </td>
+            <td>
+                <h3>ROBÔ</h3>
+                <canvas id="glCanvas2" width="300" height="300"></canvas>
+            </td>
+        </tr>
+
+        <tr> 
+            <td>
+                <h3>CARRO</h3>
+                <canvas id="glCanvas3" width="300" height="300"></canvas>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Load all JavaScript files -->
+    <script src="flor.js"></script>
+    <script src="robo.js"></script>
+    <script src="carro.js"></script>
+
+    <!-- Rodapé -->
+    <footer>
+        <small>Desenvolvido por Lucas Yuji Sapia Furukawa [RA: 176581]</small>
+    </footer>
+
+</body>
+
+</html>
