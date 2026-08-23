@@ -1,1 +1,1 @@
-# Exerc-cios-Computa-o-Gr-fica-2026.2
+# Exercícios de Computação Gráfica 2026.2
