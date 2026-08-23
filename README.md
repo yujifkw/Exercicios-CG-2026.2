@@ -1,0 +1,1 @@
+# Exerc-cios-Computa-o-Gr-fica-2026.2
