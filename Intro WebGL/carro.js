@@ -10,7 +10,7 @@
     // --------------------------------------------------
     // 1. VERTICES
     // --------------------------------------------------
-    function CARVertices() {
+    function carVertices() {
         const vertices = [];
 
         function addRect(xMin, xMax, yMin, yMax, r, g, b) {
@@ -39,7 +39,7 @@
         return new Float32Array(vertices);
     }
 
-    const vertices_CAR = CARVertices();
+    const vertices_CAR = carVertices();
 
 
     // --------------------------------------------------
