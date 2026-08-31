@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Algoritmo de Bresenham (CG)</title>
+    <style>
+        /* Estilos globais e tipografia */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #1e1e1e; 
+            color: #eeeeee; 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        
+        h1 { margin-bottom: 5px; color: #ffffff; }
+        
+        /* Menu de navegação */
+        .menu { margin-bottom: 30px; margin-top: 10px; }
+        button { 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            margin: 0 5px; 
+            background-color: #333; 
+            color: white; 
+            border: 1px solid #555; 
+            border-radius: 6px; 
+            transition: background 0.2s, transform 0.1s; 
+            font-size: 1em;
+        }
+        button:hover { background-color: #4CAF50; border-color: #4CAF50; }
+        button:active { transform: scale(0.97); }
+        
+        /* Controle de abas */
+        .tab-content { display: none; width: 100%; max-width: 1100px; } /* Aumentado para dar mais espaço */
+        .active { display: block; }
+        
+        /* Layout Flexbox (Canvas na esquerda, Info na direita) */
+        .layout-flex { 
+            display: flex; 
+            gap: 30px; 
+            justify-content: center; 
+            align-items: flex-start; 
+        }
+        
+        canvas { 
+            border: 1px solid #444; 
+            background-color: #111; 
+            cursor: crosshair; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-radius: 4px;
+        }
+        
+        /* Painel lateral de informações e comandos */
+        .info-panel { 
+            background-color: #2a2a2a; 
+            padding: 25px; 
+            border-radius: 8px; 
+            width: 480px; /* Largura fixa para não quebrar a linha */
+            flex-shrink: 0; /* Impede que o flexbox esmague o painel */
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 1px solid #3a3a3a;
+        }
+        
+        .ui-status { 
+            font-family: 'Courier New', Courier, monospace; 
+            font-size: 1.05em; 
+            margin-bottom: 20px; 
+            padding-bottom: 15px; 
+            border-bottom: 1px solid #555; 
+            color: #4fc3f7; 
+            word-wrap: break-word;
+            min-height: 80px; /* Altura mínima para não pular verticalmente */
+        }
+        
+        .legend { font-size: 0.95em; line-height: 1.5; color: #cccccc; }
+        .legend h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.1em; color: #ffffff; }
+        .legend ul { padding-left: 20px; margin-bottom: 20px; margin-top: 5px; }
+        .legend li { margin-bottom: 5px; }
+        .key { 
+            background-color: #444; 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+            font-family: monospace; 
+            color: #fff;
+            border: 1px solid #555;
+        }
 
+        /* Rodapé */
+        footer { 
+            margin-top: auto; 
+            padding-top: 40px;
+            font-size: 0.85em; 
+            color: #888; 
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Algoritmo de Bresenham (CG)</h1>
+    
+    <div class="menu">
+        <button onclick="showTab('ex1')">Exercício 1 (Retas)</button>
+        <button onclick="showTab('ex2')">Exercício 2 (Triângulos)</button>
+    </div>
+
+    <!-- Container Exercício 1 -->
+    <div id="container-ex1" class="tab-content active">
+        <div class="layout-flex">
+            <!-- Canvas reduzido para 500x500 -->
+            <canvas id="canvas-ex1" width="500" height="500"></canvas>
+            <div class="info-panel">
+                <div class="ui-status" id="ui-ex1">Aguardando cliques...</div>
+                <div class="legend">
+                    <h3>Paleta de Cores</h3>
+                    <ul>
+                        <li><span class="key">0</span> Branco &nbsp; <span class="key">1</span> Vermelho</li>
+                        <li><span class="key">2</span> Verde &nbsp;&nbsp; <span class="key">3</span> Azul</li>
+                        <li><span class="key">4</span> Amarelo &nbsp;<span class="key">5</span> Magenta</li>
+                        <li><span class="key">6</span> Ciano &nbsp;&nbsp; <span class="key">7</span> Laranja</li>
+                        <li><span class="key">8</span> Roxo &nbsp;&nbsp;&nbsp; <span class="key">9</span> Cinza</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container Exercício 2 -->
+    <div id="container-ex2" class="tab-content">
+        <div class="layout-flex">
+            <!-- Canvas reduzido para 500x500 -->
+            <canvas id="canvas-ex2" width="500" height="500"></canvas>
+            <div class="info-panel">
+                <div class="ui-status" id="ui-ex2">Modo: Reta | Cliques: 0</div>
+                <div class="legend">
+                    <h3>Modos de Desenho</h3>
+                    <ul>
+                        <li><span class="key">R</span> Traçar Retas (2 cliques)</li>
+                        <li><span class="key">T</span> Traçar Triângulos (3 cliques)</li>
+                    </ul>
+                    <h3>Paleta de Cores</h3>
+                    <ul>
+                        <li><span class="key">0</span> Branco &nbsp; <span class="key">1</span> Vermelho</li>
+                        <li><span class="key">2</span> Verde &nbsp;&nbsp; <span class="key">3</span> Azul</li>
+                        <li><span class="key">4</span> Amarelo &nbsp;<span class="key">5</span> Magenta</li>
+                        <li><span class="key">6</span> Ciano &nbsp;&nbsp; <span class="key">7</span> Laranja</li>
+                        <li><span class="key">8</span> Roxo &nbsp;&nbsp;&nbsp; <span class="key">9</span> Cinza</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Desenvolvido por Lucas Yuji Sapia Furukawa [RA:176581]
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('container-' + tabId).classList.add('active');
+        }
+    </script>
+
+    <script src="ex1.js"></script>
+    <script src="ex2.js"></script>
+
+</body>
+</html>
