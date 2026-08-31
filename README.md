@@ -8,10 +8,11 @@ Este repositório contém os exercícios práticos desenvolvidos para as aulas d
 
 Clique nos links abaixo para navegar até a pasta de cada implementação:
 
-L **[Intro WebGL](./Intro_WebGL)**  
-    L   
+L **[Intro WebGL](./Intro%20WebGL)**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Renderização de primitivas geométricas 2D básicas no WebGL, criando figuras compostas (Flor, Robô e Carro) através da manipulação direta de vértices e cores nos shaders.
+
 L **[Algoritmo de Bresenham](./Bresenham)**  
-    L  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Implementação puramente matemática do algoritmo de Bresenham para traçar retas e triângulos "pixel a pixel" com o mouse, incluindo um sistema dinâmico de cores indexadas (teclas 0 a 9).
 
 ---
 
