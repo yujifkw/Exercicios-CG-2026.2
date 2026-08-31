@@ -1,75 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebGL Primitives Examples</title>
     <style>
+        /* Estilos globais e tipografia (Padrão Dark Theme) */
         body {
-            margin: 20px;
-            padding: 0;
-            background-color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #eeeeee;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
+
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            color: #ffffff;
+            margin-bottom: 40px;
         }
-        table {
-            border-collapse: collapse;
-            margin: 0 auto;
-            border: 2px solid #ddd;
+
+        /* Contêiner Flexbox para manter lado a lado */
+        .canvas-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap; /* Permite quebrar a linha se a tela for muito pequena */
+            width: 100%;
+            max-width: 1200px;
         }
-        td {
-            border: 1px solid #ccc;
-            padding: 15px;
-            text-align: center;
-            vertical-align: top;
-            background-color: #f9f9f9;
+
+        /* Estilo dos cartões individuais */
+        .card {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 1px solid #3a3a3a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s ease-in-out;
         }
-        h3 {
+
+        .card h3 {
             margin-top: 0;
-            margin-bottom: 10px;
-            color: #555;
-            font-size: 14px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
+
+        /* Estilo dos Canvas */
         canvas {
-            border: 1px solid #999;
-            background-color: black;
+            border: 1px solid #444;
+            background-color: #111;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-radius: 4px;
         }
+
+        /* Rodapé */
         footer {
+            margin-top: auto;
+            padding-top: 50px;
+            font-size: 0.9em;
+            color: #888;
             text-align: center;
-            margin-top: 40px;
-            padding-bottom: 20px;
-            color: #777; /* Deixa o texto com um tom de cinza mais discreto */
         }
     </style>
 </head>
 
 <body>
+    
     <h1>Exercícios - Intro WebGL</h1>
     
-    <table>
-        <tr>
-            <td>
-                <h3>FLOR</h3>
-                <canvas id="glCanvas1" width="300" height="300"></canvas>
-            </td>
-            <td>
-                <h3>ROBÔ</h3>
-                <canvas id="glCanvas2" width="300" height="300"></canvas>
-            </td>
-        </tr>
+    <!-- Contêiner principal com os três exercícios lado a lado -->
+    <div class="canvas-container">
+        <div class="card">
+            <h3>Flor</h3>
+            <canvas id="glCanvas1" width="300" height="300"></canvas>
+        </div>
+        
+        <div class="card">
+            <h3>Robô</h3>
+            <canvas id="glCanvas2" width="300" height="300"></canvas>
+        </div>
 
-        <tr> 
-            <td>
-                <h3>CARRO</h3>
-                <canvas id="glCanvas3" width="300" height="300"></canvas>
-            </td>
-        </tr>
-    </table>
+        <div class="card">
+            <h3>Carro</h3>
+            <canvas id="glCanvas3" width="300" height="300"></canvas>
+        </div>
+    </div>
 
     <!-- Load all JavaScript files -->
     <script src="flor.js"></script>
