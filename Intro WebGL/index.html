@@ -1,88 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebGL Primitives Examples</title>
+    <title>Intro WebGL - Minimal</title>
     <style>
-        /* Estilos globais e tipografia (Padrão Dark Theme) */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1e1e1e;
-            color: #eeeeee;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
+        /* Estilos globais e tipografia */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff; 
+            color: #000000; 
+            margin: 0; 
+            padding: 0; 
+            display: flex; 
+            flex-direction: column; 
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             box-sizing: border-box;
+            position: relative; 
+            overflow-x: hidden;
+        }
+        
+        /* Logo no Canto Superior Esquerdo */
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
         }
 
-        h1 {
-            text-align: center;
-            color: #ffffff;
-            margin-bottom: 40px;
+        .logo::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #000;
         }
 
-        /* Contêiner Flexbox para manter lado a lado */
+        /* Contêiner das formas */
         .canvas-container {
             display: flex;
-            gap: 30px;
+            gap: 50px;
             justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap; /* Permite quebrar a linha se a tela for muito pequena */
-            width: 100%;
-            max-width: 1200px;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 40px;
         }
 
-        /* Estilo dos cartões individuais */
         .card {
-            background-color: #2a2a2a;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            border: 1px solid #3a3a3a;
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.2s ease-in-out;
         }
 
         .card h3 {
             margin-top: 0;
             margin-bottom: 20px;
-            color: #ffffff;
-            font-size: 1.1em;
+            color: #000000;
+            font-size: 1.2em;
             letter-spacing: 1px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
-        /* Estilo dos Canvas */
-        canvas {
-            border: 1px solid #444;
-            background-color: #111;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-            border-radius: 4px;
+        /* Canvas com borda sólida e sombra flat */
+        canvas { 
+            border: 2px solid #000000; 
+            background-color: #000000; 
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.03); 
         }
 
-        /* Rodapé */
-        footer {
-            margin-top: auto;
-            padding-top: 50px;
-            font-size: 0.9em;
-            color: #888;
-            text-align: center;
+        /* Rodapé no Canto Inferior Direito */
+        footer { 
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 10px; 
+            color: #000000; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
     </style>
 </head>
-
 <body>
-    
-    <h1>Exercícios - Intro WebGL</h1>
-    
-    <!-- Contêiner principal com os três exercícios lado a lado -->
+
+    <!-- Título posicionado no canto -->
+    <div class="logo">Intro WebGL</div>
+
+    <!-- Elementos centrais -->
     <div class="canvas-container">
         <div class="card">
             <h3>Flor</h3>
@@ -100,16 +114,15 @@
         </div>
     </div>
 
-    <!-- Load all JavaScript files -->
+    <!-- Créditos posicionados no canto -->
+    <footer>
+        Desenvolvido por Lucas Yuji Sapia Furukawa [RA: 176581]
+    </footer>
+
+    <!-- Scripts -->
     <script src="flor.js"></script>
     <script src="robo.js"></script>
     <script src="carro.js"></script>
 
-    <!-- Rodapé -->
-    <footer>
-        <small>Desenvolvido por Lucas Yuji Sapia Furukawa [RA: 176581]</small>
-    </footer>
-
 </body>
-
 </html>
