@@ -14,7 +14,7 @@ L **[Intro WebGL](./Intro%20WebGL)**
 L **[Algoritmo de Bresenham](./Bresenham)**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Implementação puramente matemática do algoritmo de Bresenham para traçar retas e triângulos "pixel a pixel" com o mouse, incluindo um sistema dinâmico de cores indexadas (teclas 0 a 9).
 
-L **[Pong Game](./Pong)**  
+L **[Pong Game Completo](./Pong%20Completo)**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Desenvolvimento de um jogo de Pong interativo e funcional em WebGL2. Inclui controle de raquetes independentes via teclado (W/S e Setas), sistema de detecção de colisão matemática, cálculo de rebotes e placar dinâmico.
 
 ---
