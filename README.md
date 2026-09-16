@@ -17,6 +17,9 @@ L **[Algoritmo de Bresenham](./Bresenham)**
 L **[Pong Game Completo](./Pong%20Completo)**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Desenvolvimento de um jogo de Pong interativo e funcional em WebGL2. Inclui controle de raquetes independentes via teclado (W/S e Setas), sistema de detecção de colisão matemática, cálculo de rebotes e placar dinâmico.
 
+L **[Animação POO](./Animação%20POO)**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Aplicação de Programação Orientada a Objetos (POO) para criar um grafo de cena (Scene Graph) bidimensional. O projeto demonstra o uso de hierarquia espacial através de operações de matrizes, animando independentemente os membros de um robô (braços, pernas, cabeça e tronco).
+
 ---
 
 ## Tecnologias Utilizadas
