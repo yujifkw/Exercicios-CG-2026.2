@@ -20,6 +20,9 @@ L **[Pong Game Completo](./Pong%20Completo)**
 L **[Animação POO](./Animação%20POO)**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Aplicação de Programação Orientada a Objetos (POO) para criar um grafo de cena (Scene Graph) bidimensional. O projeto demonstra o uso de hierarquia espacial através de operações de matrizes, animando independentemente os membros de um robô (braços, pernas, cabeça e tronco).
 
+L **[Helicóptero](./Helicóptero)**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L Modelagem hierárquica e animação de um helicóptero 3D usando grafos de cena em WebGL2. Demonstra a aplicação e combinação de rotações contínuas em múltiplos eixos e estruturação de matrizes locais e globais para garantir âncoras perfeitas de movimento das hélices.
+
 ---
 
 ## Tecnologias Utilizadas
